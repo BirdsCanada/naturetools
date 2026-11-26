@@ -487,16 +487,33 @@ cosewic_iao <- function(
     message("User-provided grid has cell size of ", format(cell_size))
   }
 
-  iao_full <- grid %>%
-    sf::st_join(df_sf) %>%
-    sf::st_drop_geometry() %>%
-    dplyr::group_by(.data$grid_id) %>%
-    dplyr::summarize(n_records = sum(!is.na(.data[[record]])), .groups = "drop")
+  # Assign each record to exactly one cell to break ties where records lie on 
+  # cell boundaries. Allow 1mm differences for rounding errors on edges 
+  cell <- sf::st_nearest_feature(df_sf, grid)
+  dist <- sf::st_distance(df_sf, grid[cell, ], by_element = TRUE) |>
+    units::set_units("m", mode = "standard")
 
-  
-  if (sum(iao_full$n_records) != nrow(df_sf)) {
-    stop("Records incorrectly assigned to grids", call. = FALSE)
+  # If any left over, the grid isn't the right size
+  outside <- dist > units::set_units(0.001, "m", mode = "standard")
+  if (any(outside)) {
+    stop(
+      "Some records are not within the IAO grid: ",
+      paste0(df_sf[[record]][outside], collapse = ", "),
+      call. = FALSE
+    )
   }
+
+  counts <- dplyr::count(
+    data.frame(grid_id = grid$grid_id[cell]),
+    .data$grid_id,
+    name = "n_records"
+  )
+
+  iao_full <- sf::st_drop_geometry(grid) %>%
+    dplyr::select("grid_id") %>%
+    dplyr::left_join(counts, by = "grid_id") %>%
+    dplyr::mutate(n_records = dplyr::coalesce(.data$n_records, 0L)) %>%
+    dplyr::as_tibble()
 
   iao <- iao_full %>%
     dplyr::filter(.data$n_records > 0) %>%
