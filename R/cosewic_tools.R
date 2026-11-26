@@ -474,16 +474,16 @@ cosewic_iao <- function(
   } else {
     # Prepare custom grid
     grid <- dplyr::mutate(grid, grid_id = dplyr::row_number())
+    cell_area <- stats::median(sf::st_area(grid))
 
-    # Only use range of grid which is required
-    grid <- sf::st_crop(sf::st_set_agr(grid, "constant"), sf::st_bbox(df_sf))
+    # Crop grid to spatial extent of the data, buffered by one cell to prevent
+    # clipping edge records.
+    cell_width <- sqrt(units::drop_units(cell_area))
+    data_extent <- sf::st_bbox(df_sf) + c(-1, -1, 1, 1) * cell_width
+    grid <- sf::st_crop(sf::st_set_agr(grid, "constant"), data_extent)
 
-    units <- paste0(sf::st_crs(grid)$units_gdal, "^2")
-    cell_size <- sf::st_area(grid) %>%
-      stats::median() %>%
-      units::set_units(units, mode = "standard") %>%
-      units::set_units("km2") %>%
-      sqrt()
+    # Inform user to catch problems
+    cell_size <- sqrt(units::set_units(cell_area, "km2"))
     message("User-provided grid has cell size of ", format(cell_size))
   }
 
