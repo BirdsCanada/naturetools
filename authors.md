@@ -2,23 +2,28 @@
 
 ## Authors
 
-- **Steffi LaZerte**. Author.
+- **Birds Canada**. Author, maintainer.
 
-- **Denis Lepage**. Author, maintainer.
+- **Steffi LaZerte**. Author. [](https://orcid.org/0000-0002-7690-8360)
+
+- **Rory Macklin**. Author.
+
+- **Danielle Ethier**. Author.
 
 ## Citation
 
 Source:
 [`DESCRIPTION`](https://github.com/BirdsCanada/naturetools/blob/main/DESCRIPTION)
 
-LaZerte S, Lepage D (2026). *naturetools: Tools for COSEWIC Assessments
-Using NatureCounts Data*. R package version 0.0.0.9000,
+Birds Canada, LaZerte S, Macklin R, Ethier D (2026). *naturetools: Extra
+tools for working with NatureCounts and other observations-based data
+sets*. R package version 0.0.1,
 <https://github.com/BirdsCanada/naturetools>.
 
     @Manual{,
-      title = {naturetools: Tools for COSEWIC Assessments Using NatureCounts Data},
-      author = {Steffi LaZerte and Denis Lepage},
+      title = {naturetools: Extra tools for working with NatureCounts and other observations-based data sets},
+      author = {{Birds Canada} and Steffi LaZerte and Rory Macklin and Danielle Ethier},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 0.0.1},
       url = {https://github.com/BirdsCanada/naturetools},
     }
