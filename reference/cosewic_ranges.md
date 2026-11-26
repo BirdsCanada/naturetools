@@ -304,20 +304,9 @@ grid <- sf::st_read(system.file(
 #> Projected CRS: Canada_Albers_Equal_Area_Conic
 r <- cosewic_ranges(naturecounts::bcch, iao_grid = grid)
 #> User-provided grid has cell size of 2 [km]
-#> Error in dplyr::mutate(ranges, iao = purrr::map(.data[["data"]], function(x) {    cosewic_iao(x, cell_size, record, spatial, buffer = .env$iao_buffer,         crs = .env$crs, grid = iao_grid)})): ℹ In argument: `iao = purrr::map(...)`.
-#> Caused by error in `purrr::map()`:
-#> ℹ In index: 1.
-#> Caused by error:
-#> ! Records incorrectly assigned to grids
 cosewic_plot(r)
-#> $`14280`
 #> Zoom: 9
 
-#> 
-#> $`20350`
-#> Zoom: 6
-
-#> 
 
 # Slight differences when compared to internally created grid,
 # just due to where the observations line up

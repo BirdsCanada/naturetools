@@ -33,8 +33,12 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.0.0.9000" id="naturetools-0009000">naturetools 0.0.0.9000<a class="anchor" aria-label="anchor" href="#naturetools-0009000"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.0.1" id="naturetools-001">naturetools 0.0.1<a class="anchor" aria-label="anchor" href="#naturetools-001"></a></h2>
 <ul><li>Initial version. <code><a href="../reference/cosewic_ranges.html">cosewic_ranges()</a></code> and <code><a href="../reference/cosewic_plot.html">cosewic_plot()</a></code> moved from naturecounts.</li>
+<li>
+<code><a href="../reference/cosewic_ranges.html">cosewic_ranges()</a></code> for IAO calculations with a custom <code>iao_grid</code> now adds a mini 1-cell buffer to ensure that edge records are not omitted</li>
+<li>
+<code><a href="../reference/cosewic_ranges.html">cosewic_ranges()</a></code> for all IAO calculations ensures that records on the edge of a cell are not double counted or omitted due to rounding error.</li>
 </ul></div>
   </main></div>
 
