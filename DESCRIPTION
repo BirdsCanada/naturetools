@@ -1,0 +1,50 @@
+Package: naturetools
+Type: Package
+Title: Tools for COSEWIC Assessments Using NatureCounts Data
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Steffi", "LaZerte", email = "steffi@steffi.ca", role = "aut"),
+    person("Denis", "Lepage", email = "dlepage@birdscanada.org", role = c("aut", "cre")))
+Description: Tools for calculating and plotting COSEWIC Index of Area of
+    Occupancy (IAO) and Extent of Occurrence (EOO) ranges from data on plant
+    and animal populations, such as those from NatureCounts, a service
+    managed by Birds Canada.
+License: GPL-3
+Encoding: UTF-8
+Depends: 
+    R (>= 4.1)
+Imports: 
+    DBI (>= 1.0.0),
+    dplyr (>= 1.1.0),
+    ggplot2 (>= 3.4.0),
+    magrittr,
+    purrr (>= 0.3.2),
+    rlang (>= 0.1.2),
+    stats,
+    stringr (>= 1.3.1),
+    tidyr (>= 0.8.2),
+    units (>= 0.8.1),
+    utils,
+    wk (>= 0.7.1)
+Suggests:
+    ggspatial (>= 1.1.10),
+    naturecounts (>= 0.5.2),
+    patchwork,
+    prettymapr (>= 0.2.5),
+    raster,
+    rnaturalearth,
+    rnaturalearthhires,
+    rosm,
+    sf (>= 1.0-9),
+    testthat (>= 3.0.0),
+    vdiffr
+Language: en-US
+Roxygen: list(markdown = TRUE)
+URL: https://github.com/BirdsCanada/naturetools,
+    https://birdscanada.github.io/naturetools/
+Config/testthat/edition: 3
+Remotes: 
+    BirdsCanada/naturecounts,
+    ropensci/rnaturalearthhires,
+    wranglezone/tibblify
+Config/roxygen2/version: 8.1.1

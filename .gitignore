@@ -1,0 +1,10 @@
+inst/doc
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+docs
+misc
+cache
+rosm.cache
+*.zip

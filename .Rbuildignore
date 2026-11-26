@@ -1,0 +1,10 @@
+^docs$
+^data-raw$
+^vignettes$
+^_pkgdown\.yml$
+^.*\.Rproj$
+^\.Rproj\.user$
+^pkgdown$
+^\.github$
+^\.vscode$
+^[.]?air[.]toml$

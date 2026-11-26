@@ -1,0 +1,30 @@
+url: https://birdscanada.github.io/naturetools/
+
+template:
+  bootstrap: 5
+  bootswatch: sandstone
+
+navbar:
+  bg: dark
+  structure:
+    left: [home, reference, articles, news]
+    right: [search, github]
+  components:
+    reference:
+      text: Functions
+      href: reference/index.html
+
+reference:
+- title: Learning about this package
+  contents:
+  - naturetools-package
+- title: COSEWIC functions
+  desc: Functions for helping with COSEWIC assessments
+  contents:
+  - cosewic_ranges
+  - cosewic_plot
+- title: Helper functions
+  desc: Functions for working with spatial data
+  contents:
+  - map_canada
+  - grid_canada
