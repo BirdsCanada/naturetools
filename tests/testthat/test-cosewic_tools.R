@@ -1,5 +1,3 @@
-skip_if_not_installed("naturecounts")
-
 test_that("prep_spatial()", {
   expect_silent(s <- prep_spatial(bcch, p = 1, crs = "ESRI:102001"))
   expect_s3_class(s, "sf")
