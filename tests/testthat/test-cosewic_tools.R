@@ -302,6 +302,52 @@ test_that("cosewic_iao() custom IAO grid", {
     ),
     "User\\-provided grid has cell size of 2 \\[km\\]"
   )
+  expect_equal(a$n_occupied, 31)
+})
+
+test_that("cosewic_iao() custom grid assigns edge records to one cell", {
+  # 2x2 grid of 2km cells
+  grid <- sf::st_bbox(c(xmin = 0, ymin = 0, xmax = 4000, ymax = 4000)) %>%
+    sf::st_as_sfc() %>%
+    sf::st_make_grid(cellsize = 2000) %>%
+    sf::st_sf(crs = 3347)
+
+  df <- data.frame(
+    record_id = 1:4,
+    x = c(1000, 2000, 2000, 4000), # inside, shared edge, corner, outer edge
+    y = c(1000, 1000, 2000, 3000),
+    prop_include = 1
+  ) %>%
+    sf::st_as_sf(coords = c("x", "y"), crs = 3347)
+
+  expect_message(
+    a <- cosewic_iao(
+      df,
+      record = "record_id",
+      spatial = TRUE,
+      crs = 3347,
+      grid = grid
+    ),
+    "cell size of 2 \\[km\\]"
+  )
+  expect_equal(sum(a$n_records), nrow(df))
+
+  # Records outside the grid
+  df_out <- rbind(df, sf::st_sf(
+    record_id = 5,
+    prop_include = 1,
+    geometry = sf::st_sfc(sf::st_point(c(10000, 10000)), crs = 3347)
+  ))
+  expect_error(
+    suppressMessages(cosewic_iao(
+      df_out,
+      record = "record_id",
+      spatial = FALSE,
+      crs = 3347,
+      grid = grid
+    )),
+    "Some records are not within the IAO grid: 5"
+  )
 })
 
 test_that("cosewic_iao() buffer is adjustable", {
