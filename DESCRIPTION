@@ -1,6 +1,6 @@
 Package: naturetools
 Type: Package
-Title: Extra tools for working with NatureCounts and other observations-based data sets.
+Title: Extra tools for working with NatureCounts and other observations-based data sets
 Version: 0.0.1
 Authors@R: c(
     person("Birds Canada", role = c("aut", "cre"), email = "dethier@birdscanada.org"),
