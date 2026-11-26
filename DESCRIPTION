@@ -3,9 +3,9 @@ Type: Package
 Title: Extra tools for working with NatureCounts and other observations-based data sets.
 Version: 0.0.1
 Authors@R: c(
-    person("Birds Canada", role = c("aut", "cre")),
+    person("Birds Canada", role = c("aut", "cre"), email = "dethier@birdscanada.org"),
     person("Steffi", "LaZerte", email = "sel@steffilazerte.ca", role = c("aut"), comment = c(ORCID = "0000-0002-7690-8360")),
-    person("Rory", "Macklin", email = "rmacklin@birdscanada.org", role = c("aut"))
+    person("Rory", "Macklin", email = "rmacklin@birdscanada.org", role = c("aut")),
     person("Danielle", "Ethier", email = "dethier@birdscanada.org", role = c("aut")))
 Description: Extra tools for working with data on plant and animal populations, 
     such as those from NatureCounts, a service managed by Birds Canada.
