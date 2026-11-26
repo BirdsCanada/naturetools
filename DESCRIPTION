@@ -1,14 +1,16 @@
 Package: naturetools
 Type: Package
-Title: Tools for COSEWIC Assessments Using NatureCounts Data
-Version: 0.0.0.9000
+Title: Extra tools for working with NatureCounts and other observations-based data sets.
+Version: 0.0.1
 Authors@R: c(
-    person("Steffi", "LaZerte", email = "steffi@steffi.ca", role = "aut"),
-    person("Denis", "Lepage", email = "dlepage@birdscanada.org", role = c("aut", "cre")))
-Description: Tools for calculating and plotting COSEWIC Index of Area of
-    Occupancy (IAO) and Extent of Occurrence (EOO) ranges from data on plant
-    and animal populations, such as those from NatureCounts, a service
-    managed by Birds Canada.
+    person("Birds Canada", role = c("aut", "cre")),
+    person("Steffi", "LaZerte", email = "sel@steffilazerte.ca", role = c("aut"), comment = c(ORCID = "0000-0002-7690-8360")),
+    person("Rory", "Macklin", email = "rmacklin@birdscanada.org", role = c("aut"))
+    person("Danielle", "Ethier", email = "dethier@birdscanada.org", role = c("aut")))
+Description: Extra tools for working with data on plant and animal populations, 
+    such as those from NatureCounts, a service managed by Birds Canada.
+    Includes COSEWIC Index of Area of Occupancy (IAO) and Extent of Occurrence 
+    (EOO) calculations as well as adding environmental covariates.
 License: GPL-3
 Encoding: UTF-8
 Depends: 
